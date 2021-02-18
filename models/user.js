@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Song extends Model {
+  class User extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,22 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  Song.init({
-    title: {
+  User.init({
+    username: {
       type: DataTypes.STRING,
+      unique: { msg: `Username already in use` },
       validate: {
-        notEmpty: { msg: `Song title field cannot be left empty` }
-      }
-    },
-    url: {
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: { msg: `Song url field cannot be left empty` }
+        notEmpty: { msg: `Username field cannot be left empty` }
       }
     }
   }, {
     sequelize,
-    modelName: 'Song',
+    modelName: 'User',
   });
-  return Song;
+  return User;
 };
