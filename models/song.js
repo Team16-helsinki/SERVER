@@ -14,12 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Song.init({
-    title: DataTypes.STRING,
-    url: DataTypes.STRING,
-    option1: DataTypes.STRING,
-    option2: DataTypes.STRING,
-    option3: DataTypes.STRING,
-    answer: DataTypes.STRING
+    title: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: { msg: `Song title field cannot be left empty` }
+      }
+    },
+    url: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: { msg: `Song url field cannot be left empty` }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Song',
