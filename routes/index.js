@@ -7,6 +7,7 @@ router.get('/', RoomController.readRoom);
 router.post('/', SongController.createSong);
 router.get('/song', SongController.readSong);
 router.get('/quiz', QuizController.createQuiz);
-router.post('/room/create', RoomController.createRoom)
+router.post('/room/create', RoomController.createRoom);
+router.get('/api/song', SongController.getSongAPI)
 
 module.exports = router;
