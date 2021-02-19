@@ -37,7 +37,7 @@ class SongController {
             let song = {
                 path: element.result.api_path,
                 title: element.result.title,
-                url: '',
+                url: `https://genius.com${element.result.api_path}/apple_music_player`,
             }
             arrSong.push(song)
         });
