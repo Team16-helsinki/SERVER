@@ -4,7 +4,7 @@ const cors = require('cors')
 const router = require('./routes/index')
 const app = express()
 const port = process.env.PORT || 3000
-// app.use(cors())
+app.use(cors())
 const http = require('http').Server(app);
 const io = require("socket.io")(http, {
     cors: {
@@ -24,7 +24,7 @@ const server = http.listen(port, () => {
 
 const message= []
 
-const users=[]
+const users=[] 
 let i = 0
 
 io.on('connection', (socket) => {
